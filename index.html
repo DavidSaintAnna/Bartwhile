@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Bart While</title>
+</head>
+
+<body>
+    <div class="shade">
+        <div class="blackboard">
+            <div class="form">
+                <div class="checkboxes">
+                    <label>
+                        <input type="radio" name="phrase">
+                        "Eu não fingirei ter convulsões"
+                    </label>
+                    <label>
+                        <input type="radio" name="phrase">
+                        "A frigideira do refeitório não é brinquedo"
+                    </label>
+                    <label>
+                        <input type="radio" name="phrase">
+                        "Eu não enviarei banha pelo correio"
+                    </label>
+                    <label>
+                        <input type="radio" name="phrase">
+                        "Não é necessário haver fogo para o treinamento de incêndio"
+                    </label>
+                </div>
+
+                <p>
+                    <label>Digite aqui uma frase selecionada ou qualquer coisa da sua cabeça.</label>
+                    <div class="messages">
+                        <input type="text" class="message" />
+                    </div>
+                </p>
+                <p>
+                    <label>Quantas vezes irá se repetir ? max 11 (maior que 11) =11</label>
+                    <input type="text" id="repeat" />
+                </p>
+                <div id="buttons">
+                    <button type="button" id="send_message">Executar Frase</button>
+                    <button type="button" class="delete">Apagar</button>
+                    <div class="counts">0</div>
+                </div>
+                </form>
+                <ul id="messageList">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js" defer></script>
+</body>
+
+</html>
