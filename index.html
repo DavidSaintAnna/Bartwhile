@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Bart While</title>
-</head>
-
-<body>
-    <div class="shade">
-        <div class="blackboard">
-            <div class="form">
-                <div class="checkboxes">
-                    <label>
-                        <input type="radio" name="phrase">
-                        "Eu não fingirei ter convulsões"
-                    </label>
-                    <label>
-                        <input type="radio" name="phrase">
-                        "A frigideira do refeitório não é brinquedo"
-                    </label>
-                    <label>
-                        <input type="radio" name="phrase">
-                        "Eu não enviarei banha pelo correio"
-                    </label>
-                    <label>
-                        <input type="radio" name="phrase">
-                        "Não é necessário haver fogo para o treinamento de incêndio"
-                    </label>
-                </div>
-
-                <p>
-                    <label>Digite aqui uma frase selecionada ou qualquer coisa da sua cabeça.</label>
-                    <div class="messages">
-                        <input type="text" class="message" />
-                    </div>
-                </p>
-                <p>
-                    <label>Quantas vezes irá se repetir ? max 11 (maior que 11) =11</label>
-                    <input type="text" id="repeat" />
-                </p>
-                <div id="buttons">
-                    <button type="button" id="send_message">Executar Frase</button>
-                    <button type="button" class="delete">Apagar</button>
-                    <div class="counts">0</div>
-                </div>
-                </form>
-                <ul id="messageList">
-                </ul>
-            </div>
-        </div>
-    </div>
     <script type="text/javascript" src="script.js" defer></script>
-</body>
+  </head>
 
+  <body>
+    <div class="blackboard">
+      <form class="form">
+        <div class="phrases-container">
+          <label class="phrase">
+            <input type="radio" name="phrase" id="checkbox1" />
+            "Eu não fingirei ter convulsões"
+          </label>
+          <label class="phrase">
+            <input type="radio" name="phrase" />
+            "A frigideira do refeitório não é brinquedo"
+          </label>
+          <label class="phrase">
+            <input type="radio" name="phrase" />
+            "Eu não enviarei banha pelo correio"
+          </label>
+          <label class="phrase">
+            <input type="radio" name="phrase" />
+            "Não é necessário haver fogo para o treinamento de incêndio"
+          </label>
+        </div>
+
+        <div class="repeat-times-container">
+          <label>Quantas vezes irá se repetir (max 11) ?</label>
+          <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+          </select>
+
+          <div class="buttons-container">
+            <button type="button" data-action="repeat">Executar Frase</button>
+            <button type="button" data-action="delete">Apagar</button>
+          </div>
+        </div>
+
+        <ul class="result-container"></ul>
+      </form>
+    </div>
+  </body>
 </html>

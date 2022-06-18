@@ -1,28 +1,35 @@
-const button = document.getElementById("send_message");
-let messageList = document.getElementById("messageList");
-//botão de executar a frase
-function myFunction() {
-    console.log(arguments);
-    let message = document.querySelector(".message").value;
-    let repeat = document.getElementById("repeat").value;
-    let messages = document.querySelector(".messages");
-    i = 1;
-    while (i <= repeat && messageList.childElementCount <= 10) {
-        let node = document.createElement("LI");
-        node.textContent = message;
-        messageList.appendChild(node);
-        i++;
-    }
-}
-//botão de deletar a frase
-function deleteCount() {
-    messageList = document.getElementById("messageList");
-    let count = document.querySelector(".counts");
-    messageList.children[0].remove();
-    let number = parseInt(count.textContent) || 0;
-    count.innerText = number + 1;
+const $repeat = document.querySelector('[data-action="repeat"]');
+const $delete = document.querySelector('[data-action="delete"]');
+const $resultContainer = document.querySelector(".result-container");
 
-}
+const MAX_REPEAT_TIMES = 11;
 
-button.onclick = myFunction;
-document.querySelector(".delete").onclick = deleteCount;
+const repeatPhrase = () => {
+  const phrasesAlreadyOnPage = $resultContainer.children.length;
+  const selectedText = document.querySelector('input[type="radio"]:checked')
+    ?.parentElement.innerText;
+
+  if (!selectedText) return alert("Please select a phrase to repeat");
+
+  const selectedQuantity = +document.querySelector("select").value;
+
+  const availableQuantity = MAX_REPEAT_TIMES - phrasesAlreadyOnPage;
+  const isOverMax = selectedQuantity > availableQuantity;
+  const quantityToRepeat = isOverMax ? availableQuantity : selectedQuantity;
+
+  if (quantityToRepeat === 0)
+    return alert("You have reached the maximum number of phrases");
+
+  for (let i = 0; i < quantityToRepeat; i++) {
+    const $phrase = document.createElement("li");
+    $phrase.innerText = selectedText;
+    setTimeout(() => {
+      $resultContainer.appendChild($phrase);
+    }, i * 200);
+  }
+};
+
+$repeat.addEventListener("click", repeatPhrase);
+
+const deletePhrase = () => ($resultContainer.innerHTML = "");
+$delete.addEventListener("click", deletePhrase);
