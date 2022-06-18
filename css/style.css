@@ -1,128 +1,117 @@
 body {
-    height: 100%;
-    background: url(../assets/img/bart.jpg) center center fixed;
-    background-size: cover;
-}
-
-.message,
-.delete,
-.checkboxes {
-    z-index: 10;
-    position: relative;
-}
-
-.counts {
-    font-size: 40px;
-    color: white;
-}
-
-.shade {
-    overflow: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-image: linear-gradient( 150deg, rgba(0, 0, 0, 0.65), transparent);
+  height: 100%;
+  background: url(../assets/img/bart.jpg) center center fixed;
+  background-size: cover;
 }
 
 .blackboard {
-    position: relative;
-    width: 800px;
-    margin: 7% auto;
-    border: tan solid 12px;
-    border-top: #bda27e solid 12px;
-    border-left: #b19876 solid 12px;
-    border-bottom: #c9ad86 solid 12px;
-    box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
-    background-image: radial-gradient( circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient( 215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient( circle at right, #111, rgba(51, 51, 51, 1));
-    background-color: #333;
-}
-
-.blackboard:before {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient( 175deg, transparent, transparent 40px, rgba(120, 120, 120, 0.1) 100px, rgba(120, 120, 120, 0.1) 110px, transparent 220px, transparent), linear-gradient( 200deg, transparent 80%, rgba(50, 50, 50, 0.3)), radial-gradient( ellipse at right bottom, transparent, transparent 200px, rgba(80, 80, 80, 0.1) 260px, rgba(80, 80, 80, 0.1) 320px, transparent 400px, transparent);
-    border: #2c2c2c solid 2px;
-    content: "Quadro Negro do Bart";
-    font-family: 'Permanent Marker', cursive;
-    font-size: 2.2em;
-    color: rgba(238, 238, 238, 0.7);
-    text-align: center;
-    padding-top: 20px;
-}
-
-.form {
-    padding: 70px 20px 20px;
-}
-
-p {
-    position: relative;
-    margin-bottom: 1em;
+  position: relative;
+  width: 800px;
+  margin: 7% auto;
+  border: tan solid 12px;
+  border-top: #bda27e solid 12px;
+  border-left: #b19876 solid 12px;
+  border-bottom: #c9ad86 solid 12px;
+  box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782,
+    0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+  background-image: radial-gradient(
+      circle at left 30%,
+      rgba(34, 34, 34, 0.3),
+      rgba(34, 34, 34, 0.3) 80px,
+      rgba(34, 34, 34, 0.5) 100px,
+      rgba(51, 51, 51, 0.5) 160px,
+      rgba(51, 51, 51, 0.5)
+    ),
+    linear-gradient(
+      215deg,
+      transparent,
+      transparent 100px,
+      #222 260px,
+      #222 320px,
+      transparent
+    ),
+    radial-gradient(circle at right, #111, rgba(51, 51, 51, 1));
+  background-color: #333;
 }
 
 label {
-    vertical-align: middle;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 1.6em;
-    color: rgba(238, 238, 238, 0.7);
+  vertical-align: middle;
+  font-family: "Permanent Marker", cursive;
+  font-size: 1.6em;
+  color: rgba(238, 238, 238, 0.7);
 }
 
-p:nth-of-type(5)>label {
-    vertical-align: top;
+form {
+  padding: 1rem;
 }
 
-#buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4%;
+.phrases-container {
+  display: grid;
+}
+
+.repeat-times-container,
+.repeat-times-container select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.repeat-times-container .buttons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 button {
-    font-family: 'Noto Serif', serif;
-    font-size: 150%;
-    border-radius: 10px;
-    line-height: 1.6;
-    z-index: 10;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  font-family: "Permanent Marker", cursive;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-li {
-    color: #fff;
-    font-size: 25px;
+.phrase {
+  cursor: pointer;
 }
 
-ul {
-    list-style-type: none;
+select {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  font-family: "Permanent Marker", cursive;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin: 1rem;
 }
 
-button.delete {
-    background-color: rgb(243, 52, 52);
-    width: 30%;
+.repeat-times-container label {
+  font-size: 16px;
 }
 
-button.delete:hover {
-    box-shadow: 4px 4px 4px 2px #fff;
-    -webkit-box-shadow: 4px 4px 4px 2px #fff;
-    background-color: rgb(214, 80, 80);
+ul li {
+  list-style: none;
+  padding-left: 50px;
+  position: relative;
+
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: "Permanent Marker", cursive;
+  animation: from-left 0.5s ease-in-out;
 }
 
-button#send_message {
-    background-color: #6a753b;
-    width: 35%;
-}
+@keyframes from-left {
+  from {
+    transform: translateX(-100%);
+  }
 
-.checkboxes {
-    display: flex;
-    flex-direction: column;
-    padding-top: 28px;
-}
-
-button#send_message:hover {
-    box-shadow: 4px 4px 4px 2px #fff;
-    -webkit-box-shadow: 4px 4px 4px 2px #fff;
-    background-color: #6a753b;
+  to {
+    transform: translateX(0%);
+  }
 }
