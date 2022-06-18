@@ -1,35 +1,34 @@
-const $repeat = document.querySelector('[data-action="repeat"]');
-const $delete = document.querySelector('[data-action="delete"]');
-const $resultContainer = document.querySelector(".result-container");
+const phraseSelect = document.querySelector(".phrase-select");
+const repeatSelect = document.querySelector(".repeat-select");
+const btn = document.querySelector(".btn");
+const deleteButton = document.querySelector(".dlt-btn");
+const result = document.querySelector(".result");
+const maxQuantity = 11;
 
-const MAX_REPEAT_TIMES = 11;
+function executePhrase() {
+  const phraseValue = phraseSelect.value;
+  const phraseTimes = repeatSelect.value;
+  const option = phraseSelect.querySelector(`[value = "${phraseValue}"]`);
+  const phraseText = option.innerText;
 
-const repeatPhrase = () => {
-  const phrasesAlreadyOnPage = $resultContainer.children.length;
-  const selectedText = document.querySelector('input[type="radio"]:checked')
-    ?.parentElement.innerText;
+  const quantityOnPage = result.childElementCount;
+  const availableQuantity = maxQuantity - quantityOnPage;
+  const canAdd = phraseTimes > availableQuantity;
+  const quantityToRepeat = canAdd ? availableQuantity : phraseTimes;
 
-  if (!selectedText) return alert("Please select a phrase to repeat");
-
-  const selectedQuantity = +document.querySelector("select").value;
-
-  const availableQuantity = MAX_REPEAT_TIMES - phrasesAlreadyOnPage;
-  const isOverMax = selectedQuantity > availableQuantity;
-  const quantityToRepeat = isOverMax ? availableQuantity : selectedQuantity;
-
-  if (quantityToRepeat === 0)
-    return alert("You have reached the maximum number of phrases");
-
-  for (let i = 0; i < quantityToRepeat; i++) {
-    const $phrase = document.createElement("li");
-    $phrase.innerText = selectedText;
-    setTimeout(() => {
-      $resultContainer.appendChild($phrase);
-    }, i * 200);
+  for (let counter = 0; counter < quantityToRepeat; counter++) {
+    const phraseElement = document.createElement("li");
+    phraseElement.innerText = phraseText;
+    result.appendChild(phraseElement);
   }
-};
+}
+function deletePhrase() {
+  let count = document.querySelector(".counter");
+  result.children[0].remove();
+  let number = parseInt(count.textContent) || 0;
+  count.innerText = number + 1;
+}
 
-$repeat.addEventListener("click", repeatPhrase);
+btn.addEventListener("click", executePhrase);
 
-const deletePhrase = () => ($resultContainer.innerHTML = "");
-$delete.addEventListener("click", deletePhrase);
+deleteButton.addEventListener("click", deletePhrase);
